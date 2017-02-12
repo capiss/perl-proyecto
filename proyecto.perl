@@ -28,20 +28,19 @@ sub open_dir{
       #open_dir($file,$hash);
     }else{
       my @fileCSV= split /\./,$file;
-      if( lc $fileCSV[-1] eq "csv"){
-        print($filename);
-        &grafica($file,$filename);
+      if( lc $fileCSV[-1] eq "csv"){ ##valida que sea un archivo csv
+        &grafica_ip($file,$filename); ## Llama a grafica_ip
       }
     }		
   }
 }
 =item
-  Subrutina grafica, obtiene las IP'S del CSV
+  Subrutina grafica_ip, obtiene las IP'S del CSV
   y cuenta los eventos de cada ip, recibe como
   parametro la ruta del archivo y el nombre del
   archivo en ese orden.
 =cut
-sub grafica{
+sub grafica_ip{
   my $pathname=$_[0];
   my $filename=$_[1];
   my $detIP=0; ## Contador para detectar el campo IP
@@ -63,31 +62,29 @@ sub grafica{
       }
     
     }else{ ## Ya encontro el indice donde se encutra IP
-      if(exists $hashIP{$datos[$detIP]}){
-        $hashIP{$datos[$detIP]}++;
+      if(exists $hashIP{$datos[$detIP]}){ #valida si existe la llave con la ip
+        $hashIP{$datos[$detIP]}++; #si existe incrementa en uno la coincidencia con esa ip
       }else{
-        $hashIP{"$datos[$detIP]"}=1;
+        $hashIP{"$datos[$detIP]"}=1; # si no eciste la agrega e inicializa en uno.
       }
     }
   }
-  #print '%hashIP{\n';
-  for (sort keys %hashIP){
+  #ciclo for que ordena por IP (llave del hashIP)
+  for (sort keys %hashIP){ 
+    #agrega a valores las coincidencias de IP's
     push (@valores,$hashIP{$_});
+    #Agrega a campos las IP's
     push (@campos,$_);
-    #print "  $_ => $hashIP{$_}\n";
   }
-  #print "}\n";
   my @graf = (\@campos, \@valores);
-
   my $grafico = GD::Graph::bars->new(750, 520);
-
   $grafico->set(
-    x_label => 'IP\'S',
+    x_label => 'IP\'s',
     bar_width  => '15',
     bar_spacing => '2',
     x_labels_vertical => 1,
     y_label => 'ocurrencias',
-    title => $pathname,
+    title => $filename,
   ) or warn $grafico->error;
 
   my $imagen = $grafico->plot(\@graf) or die $grafico->error;
@@ -97,4 +94,4 @@ sub grafica{
   print IMG $imagen->png;
 }
 &open_dir("./reportes");
-#&grafica("./reportes/2017-02-09-blacklist-unam-asn.csv","017-02-09-blacklist-unam-asn.csv");
+#&grafica_ip("./reportes/2017-02-09-blacklist-unam-asn.csv","017-02-09-blacklist-unam-asn.csv");
