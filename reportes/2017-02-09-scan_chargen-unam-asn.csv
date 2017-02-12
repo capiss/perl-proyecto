@@ -1,0 +1,4 @@
+timestamp,ip,protocol,port,hostname,tag,size,asn,geo,region,city,naics,sic,sector
+09/02/2017 07:19,192.168.10.62,udp,19,,chargen,,278,MX,DISTRITO FEDERAL,MEXICO CITY,0,0,Information Technology
+09/02/2017 07:19,192.168.43.149,udp,19,,chargen,,278,MX,DISTRITO FEDERAL,MEXICO CITY,0,0,Information Technology
+09/02/2017 07:11,192.168.190.187,udp,19,,chargen,,278,MX,DISTRITO FEDERAL,MEXICO CITY,0,0,Information Technology

@@ -1,0 +1,4 @@
+timestamp,ip,protocol,port,hostname,tag,version,asn,geo,region,city,naics,sic,ok,name,cluster_name,status,build_hash,build_timestamp,build_snapshot,lucene_version,tagline,sector
+09/02/2017 03:49,192.167.1.27,tcp,9200,ave.fciencias.unam.mx,elasticsearch,1.7.5,278,MX,DISTRITO FEDERAL,MEXICO CITY,0,0,,ave1,ave.unam.mx,200,00f95f4ffca6de89d68b7ccaf80d148f1f70e4d4,2016-02-02T09:55:30Z,false,4.10.4,"You Know, for Search",Information Technology
+09/02/2017 03:26,192.168.34.20,tcp,9200,alitzel.ccg.unam.mx,elasticsearch,1.6.0,278,MX,DISTRITO FEDERAL,MEXICO CITY,0,0,,Captain Zero,elasticsearch,200,cdd3ac4dde4f69524ec0a14de3828cb95bbb86d0,2015-06-09T13:36:34Z,false,4.10.4,"You Know, for Search",Information Technology
+09/02/2017 03:43,192.168.184.150,tcp,9200,,elasticsearch,1.7.6,278,MX,DISTRITO FEDERAL,MEXICO CITY,0,0,,Nico Minoru,elasticsearch,200,c730b59357f8ebc555286794dcd90b3411f517c9,2016-11-18T15:21:16Z,false,4.10.4,"You Know, for Search",Information Technology
