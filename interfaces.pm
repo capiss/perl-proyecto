@@ -2,6 +2,10 @@
 =head1 Proyecto Final PERL
 =item
   Integrantes:
+    Alan Dennis Mondragón Mejía
+    Angel Enrique Mendez Ortiz
+    Armando Hernandez Hernández
+    Sergio Ivan Galindo Diaz
 =cut
 use strict;
 package interfaces;

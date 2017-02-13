@@ -4,6 +4,10 @@
   
 # Programación en PERL
  Integrantes:
+  Alan Dennis Mondragón Mejía
+  Angel Enrique Mendez Ortiz
+  Armando Hernandez Hernández
+  Sergio Ivan Galindo Diaz
 
 # CPAN
   sudo perl -MCPAN -e "install CGI::Application"
