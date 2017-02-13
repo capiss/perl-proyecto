@@ -5,13 +5,13 @@
 =cut
 use strict;
 package interfaces;
-use Net::Ifconfig::Wrapper;
 use HTML::Template;
 use parent 'CGI::Application';
-use CGI::Application::Plugin::Forward;
-use CGI ':standard';
+#use CGI::Application::Plugin::Forward;
+#use CGI ':standard';
 use GD::Graph::bars;
-use Data::Dumper;
+use GD::Text;
+#use Data::Dumper;
 
 my (%hashIP,%hashEvento);
 
@@ -128,6 +128,7 @@ sub grafica_ip{
   my @graf = (\@campos, \@valores);
   my $grafico = GD::Graph::bars->new($tam+200, 720);
   $grafico->set(
+    show_values => 1,
     x_label => 'IP\'s',
     bar_width  => '2',
     bar_spacing => '1',
@@ -163,16 +164,17 @@ sub grafica_evento{
   }
   my @graf = (\@campos, \@valores);
   my ($width,$bar_width);
-  if ($tam<520){
-    $width=520;
-    $bar_width=(520-200)/$tam;
+  if ($tam<1280){
+    $width=1280;
+    $bar_width=(1280-200)/$tam;
   }else{
     $width=($tam*5)+200;
     $bar_width=4;
   }
   #print "bar_width: $bar_width\n";
-  my $grafico = GD::Graph::bars->new($width, 720);
+  my $grafico = GD::Graph::bars->new($width, $width-100);
   $grafico->set(
+    show_values => 1,
     x_label => 'IP\'s',
     bar_width  => $bar_width,
     bar_spacing => '1',
@@ -181,7 +183,6 @@ sub grafica_evento{
     y_label => 'ocurrencias',
     title => 'Eventos',
   ) or warn $grafico->error;
-
   my $imagen = $grafico->plot(\@graf) or die $grafico->error;
   open(IMG, ">evento.png") or die $!;
   binmode IMG;
