@@ -119,6 +119,12 @@ sub grafica_ip{
   }
   # print "}\n";
   my $tam=keys %hashIP;
+  my $max=0;
+  foreach(values %hashIP){
+    if($_>$max){
+      $max=$_;
+    }
+  }
   my @graf = (\@campos, \@valores);
   my $grafico = GD::Graph::bars->new($tam+200, 720);
   $grafico->set(
@@ -127,6 +133,7 @@ sub grafica_ip{
     bar_spacing => '1',
     x_labels_vertical => 1,
     y_label => 'ocurrencias',
+    y_max_value   => $max+1,
     title => 'Ips con mas de un evento',
   ) or warn $grafico->error;
 
