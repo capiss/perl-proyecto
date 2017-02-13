@@ -172,7 +172,7 @@ sub grafica_evento{
     $bar_width=4;
   }
   #print "bar_width: $bar_width\n";
-  my $grafico = GD::Graph::bars->new($width, $width-100);
+  my $grafico = GD::Graph::bars->new($width, $width-800);
   $grafico->set(
     show_values => 1,
     x_label => 'IP\'s',
